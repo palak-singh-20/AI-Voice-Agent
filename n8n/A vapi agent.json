@@ -1,0 +1,167 @@
+{
+  "name": "A vapi agent",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "vapi-agent",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ff0100f8-1ffd-4014-883d-b53c03a432ea",
+      "name": "Webhook",
+      "webhookId": "a892ef26-ef1a-489e-9bf3-f7f05ab86ed5"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"reply\": \"{{ $json.output }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        576,
+        0
+      ],
+      "id": "2bb0cd5d-de2f-423b-95f3-ba1790fc302c",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.question }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "dd1d5c73-f025-441e-acbf-9c87c1b8fc1d",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        304,
+        208
+      ],
+      "id": "43149a71-a727-440b-a028-08123a8f8ea6",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "pjBLkgjPSEzuljbb",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "Receives incoming requests.\nCaptures the user's question.\nTriggers the workflow.\nPasses data to the AI Agent.",
+        "height": 112,
+        "width": 256
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -96,
+        160
+      ],
+      "typeVersion": 1,
+      "id": "b340a546-86aa-45d8-869a-83faa9b3b6b3",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "Analyzes the user's query.\nUses the Groq language model.\nGenerates an intelligent response.\nPrepares the final output.",
+        "height": 112,
+        "width": 288
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        176,
+        -160
+      ],
+      "typeVersion": 1,
+      "id": "7a2f69ee-aa56-4a0f-80f5-476c646c089c",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "Receives the AI response.\nFormats the response as JSON.\nSends it back to Vapi.\nCompletes the request cycle.",
+        "height": 112,
+        "width": 272
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        560,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "3a30616c-31a0-4175-97ca-827ce0ee5f63",
+      "name": "Sticky Note2"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "5f135dd5-743b-417b-a3a5-801b395e2747",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6557be9dc268c4e8d53eef444b5e85e7722d32c0aa0d14db2ddd819ee52b9e24"
+  },
+  "nodeGroups": [],
+  "id": "sGsofi9oefK5rU7o",
+  "tags": []
+}
