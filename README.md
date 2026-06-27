@@ -1,17 +1,20 @@
 # 🎙️ AI Voice Agent
 
-An AI-powered voice assistant built using **Vapi**, **n8n**, and **Groq**. This project demonstrates how voice conversations can be processed through AI agent workflows to generate intelligent, context-aware responses.
+An AI-powered business voice assistant built using **Vapi**, **n8n**, and **Groq**. This project demonstrates how voice conversations can be processed through AI agent workflows to generate intelligent, context-aware responses.
 
 ---
 
 ## 🚀 Features
 
-- 🎤 Real-time voice conversations
-- 🤖 AI Agent powered by n8n
+- 🎙️ AI-powered voice conversations
+- 💬 Multi-turn contextual conversations
+- 📅 Appointment scheduling workflow
+- 📝 Conversation summarization
+- 📧 Lead information collection
 - ⚡ Groq LLM integration
-- 🔗 Webhook-based communication
-- 💬 Multi-turn conversation support
-- 🧠 Context-aware responses
+- 🔗 n8n workflow automation
+- 🌐 Webhook-based API integration
+- 📞 Business customer support automation
 
 ---
 
