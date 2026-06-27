@@ -35,12 +35,12 @@ AI-Voice-Agent
 └── LICENSE
 ```
 
-### 📁 Repository Files
+## 📂 Repository Structure
 
-- 📁 **Docs:** https://github.com/palak-singh-20/AI-Voice-Agent/tree/main/docs
-- 📁 **n8n Workflow:** https://github.com/palak-singh-20/AI-Voice-Agent/tree/main/n8n
-- 📄 **Workflow JSON:** https://github.com/palak-singh-20/AI-Voice-Agent/blob/main/n8n/workflow.json
-- 📄 **License:** https://github.com/palak-singh-20/AI-Voice-Agent/blob/main/LICENSE
+- 📁 [docs](https://github.com/palak-singh-20/AI-Voice-Agent/tree/main/docs) – Screenshots and images
+- 📁 [n8n](https://github.com/palak-singh-20/AI-Voice-Agent/tree/main/n8n) – Exported workflow
+- 📄 [workflow.json](https://github.com/palak-singh-20/AI-Voice-Agent/blob/main/n8n/workflow.json)
+- 📄 [LICENSE](https://github.com/palak-singh-20/AI-Voice-Agent/blob/main/LICENSE)
 
 ---
 
